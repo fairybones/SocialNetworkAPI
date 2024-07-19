@@ -1,12 +1,19 @@
 const { Thought, User } = require("../models");
+
+const mongoose = require('mongoose');
+const user = new User({ 
+  _id: new mongoose.Types.ObjectId(),
+  username: User.username
+});
 // const router = require('express').Router();
 
 module.exports = {
   // READ all posts/thoughts
   async getThoughts(req, res) {
     try {
-      const thoughts = await Thought.find().populate("user");
+      const thoughts = await Thought.find().populate('user');
       res.status(200).json(thoughts);
+      // return this.User.findOne({ _id: userId }).exec();
     } catch (err) {
       console.log("No thoughts, brain empty", err);
       res.status(500).json(err);

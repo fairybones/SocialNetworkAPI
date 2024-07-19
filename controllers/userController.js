@@ -1,10 +1,16 @@
 const { Thought, User } = require('../models');
 
+const mongoose = require('mongoose');
+const thought = new Thought({
+    _id: new mongoose.Types.ObjectId(),
+    text: Thought.text
+});
+
 module.exports = {
 // GET all users
 async getUsers(req, res) {
     try {
-        const users = await User.find().populate('thoughts');
+        const users = await User.find().populate('thought');
         res.status(200).json(users);
     } catch (err) {
         console.log('Oops! Something went wrong', err);
@@ -76,7 +82,7 @@ async addFriend(req, res) {
         }
         res.status(200).json(user);
     } catch (err) {
-        console.log(`Trouble adding ${user} to friends list`);
+        console.log('Trouble adding user to friends list');
         res.status(500).json(err);
     }
 },
