@@ -46,15 +46,5 @@ userSchema
 // Initialize user model
 const User = model("user", userSchema);
 
-// Create a new instance (document)
-// User.create([
-//   {
-//     username: "fairybones",
-//     email: "aeschalna@gmail.com",
-//     thoughts: "This is my first post!",
-//     friends: "mickeyAndcastiel",
-//   },
-// ]);
-
 // Export model to be used elsewhere
 module.exports = User;

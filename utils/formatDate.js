@@ -4,7 +4,8 @@ function formatDate(createdAt) {
     const month = date.toLocaleString('default', { month: 'short' });
     const year = date.toLocaleString('default', { year: 'numeric' });
     // return Day-Month(abbr)-Year
-    return day + '-' + month + '-' + year;
+    // return day + '-' + month + '-' + year;
+    return `${month} ${day}, ${year}`;
 };
 
 module.exports = formatDate;
